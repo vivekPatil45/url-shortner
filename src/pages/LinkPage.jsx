@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Link = () => {
+const LinkPage = () => {
     return (
         <div>
         Link
@@ -8,4 +8,4 @@ const Link = () => {
     )
 }
 
-export default Link
+export default LinkPage
