@@ -37,7 +37,8 @@ export async function signup({name,email,password,profile_pic}){
         options:{
             data:{
                 name,
-                profile_pic:`${supabaseUrl}bject/public/profile_pic/${fileName}`,
+                profile_pic:`${supabaseUrl}/storage/v1/object/public/profile_pic/${fileName}`,
+                // profile_pic1:`https://spputmrydfwhspwxvxvi.supabase.co/storage/v1/object/public/profile_pic/dp-Om-Patil-0.5213247147700388`
             },
         },
     });
@@ -45,4 +46,9 @@ export async function signup({name,email,password,profile_pic}){
     if(error) throw new Error(error.message);
 
     return data;
+}
+export async function logout(){
+    const {error} = await supabase.auth.signOut();
+    if(error) throw new Error(error.message);
+
 }
