@@ -17,7 +17,7 @@ const LandingPage = () => {
 
     const handleShorten = (e)=>{
         e.preventDefault();
-        if(longUrl) navigate(`/auth?creatNew=${longUrl}`)
+        if(longUrl) navigate(`/auth?createNew=${longUrl}`)
     }
     
 
