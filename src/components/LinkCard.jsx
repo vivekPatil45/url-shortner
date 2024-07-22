@@ -3,6 +3,9 @@ import {Link} from "react-router-dom";
 import {Copy, Download, LinkIcon, Trash} from "lucide-react";
 
 import {Button} from "./ui/button";
+import useFetch from '@/hooks/useFetch';
+import { deleteUrl } from '@/db/apiUrls';
+import { BeatLoader } from 'react-spinners';
 
 const LinkCard = ({url,fetchUrls}) => {
 
@@ -24,6 +27,10 @@ const LinkCard = ({url,fetchUrls}) => {
         // Remove the anchor from the document
         document.body.removeChild(anchor);
     };
+    
+    const {loading: loadingDelete, fn: fnDelete} = useFetch(deleteUrl, url.id);
+
+
   return (
     <div className="flex flex-col md:flex-row gap-5 border p-4 bg-gray-900 rounded-lg">
         <img
@@ -60,11 +67,11 @@ const LinkCard = ({url,fetchUrls}) => {
             </Button>
             <Button
                 variant="ghost"
-                // onClick={() => fnDelete().then(() => fetchUrls())}
-                // disable={loadingDelete}
+                onClick={() => fnDelete().then(() => fetchUrls())}
+                disable={loadingDelete}
             >
-                <Trash/>
-            {/* {loadingDelete ? <BeatLoader size={5} color="white" /> : <Trash />} */}
+
+            {loadingDelete ? <BeatLoader size={5} color="white" /> : <Trash />}
             </Button>
         </div>
     </div>
