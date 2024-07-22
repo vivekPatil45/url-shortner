@@ -5,6 +5,25 @@ import {Copy, Download, LinkIcon, Trash} from "lucide-react";
 import {Button} from "./ui/button";
 
 const LinkCard = ({url,fetchUrls}) => {
+
+    const downloadImage = () => {
+        const imageUrl = url?.qr;
+        const fileName = url?.title; // Desired file name for the downloaded image
+    
+        // Create an anchor element
+        const anchor = document.createElement("a");
+        anchor.href = imageUrl;
+        anchor.download = fileName;
+    
+        // Append the anchor to the body
+        document.body.appendChild(anchor);
+    
+        // Trigger the download by simulating a click event
+        anchor.click();
+    
+        // Remove the anchor from the document
+        document.body.removeChild(anchor);
+    };
   return (
     <div className="flex flex-col md:flex-row gap-5 border p-4 bg-gray-900 rounded-lg">
         <img
@@ -36,7 +55,7 @@ const LinkCard = ({url,fetchUrls}) => {
             >
                 <Copy />
             </Button>
-            <Button variant="ghost" >
+            <Button variant="ghost" onClick={downloadImage}>
                 <Download />
             </Button>
             <Button
