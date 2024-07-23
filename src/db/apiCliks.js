@@ -4,12 +4,14 @@ import supabase from "./supabase";
 export async function getClicksForUrls(urlIds){
 
     const {data,error} = await supabase
-                                        .from('cliks')
+                                        .from('clicks')
                                         .select("*")
                                         .eq('url_id',urlIds);
+
+    console.log(data);
     if(error){
         console.log(error.message);                                    
-        throw new Error("Unable to load Cliks's");
+        throw new Error("Unable to load Clicks's");
     }
 
 
@@ -42,3 +44,19 @@ export const storeClicks = async ({id, originalUrl}) => {
     console.error("Error recording click:", error);
   }
 };
+
+
+export async function getCliksForUrl(url_id) {
+  let {data, error} = await supabase
+      .from("clicks")
+      .select("*")
+      .eq("url_id",url_id)
+      .single();
+
+  if (error) {
+      console.error(error.message);
+      throw new Error("Enable to load stats");
+  }
+
+  return data;
+}
