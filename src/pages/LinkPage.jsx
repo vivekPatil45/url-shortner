@@ -1,3 +1,5 @@
+import DeviceStats from '@/components/DeviceStats';
+import LocationStats from '@/components/LocationStats';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { UrlState } from '@/context';
@@ -8,6 +10,7 @@ import { Copy, Download, LinkIcon, Trash } from 'lucide-react';
 import React, { useEffect } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { BarLoader, BeatLoader } from 'react-spinners';
+
 
 const LinkPage = () => {
 
@@ -133,9 +136,9 @@ const LinkPage = () => {
                                 </Card>
 
                             <CardTitle>Location Data</CardTitle>
-                            {/* <Location stats={stats} /> */}
+                            <LocationStats stats={stats} />
                             <CardTitle>Device Info</CardTitle>
-                            {/* <DeviceStats stats={stats} /> */}
+                            <DeviceStats stats={stats} />
                             </CardContent>
                         ) : (
                             <CardContent>
