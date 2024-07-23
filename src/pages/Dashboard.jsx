@@ -37,7 +37,7 @@ const Dashboard = () => {
     fnUrls();
   }, []);
 
-  console.log(urls);
+//   console.log(urls);
   const filteredUrls = urls?.filter((url) =>
     url.title.toLowerCase().includes(searchQuery.toLowerCase())
   );

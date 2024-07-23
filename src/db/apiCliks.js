@@ -8,7 +8,7 @@ export async function getClicksForUrls(urlIds){
                                         .select("*")
                                         .eq('url_id',urlIds);
 
-    console.log(data);
+    // console.log(data);
     if(error){
         console.log(error.message);                                    
         throw new Error("Unable to load Clicks's");
