@@ -20,7 +20,7 @@ import { BarLoader } from 'react-spinners';
 
 const Header = () => {
     const navigate = useNavigate();
-    // const user = false;
+    
 
     const {user,fetchUser} = UrlState();
 

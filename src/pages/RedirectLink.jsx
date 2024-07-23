@@ -39,5 +39,3 @@ const RedirectLink = () => {
 }
 
 export default RedirectLink
-
-// 02:23:37 URL Info API
